@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Input and Display</title>
+</head>
+<body>
+  <form>
+    <label>Enter your Issue:</label>
+    <input type="text" id="name-input" />
+    <button type="button" onclick="saveAndDisplay()">Submit</button>
+  </form>
+  <table id="output">
+    <tr>
+      <th>Name</th>
+    </tr>
+  </table>
+
+  <script>
+    var data = []; // array to store user input data
+
+    function saveAndDisplay() {
+      var name = document.getElementById("name-input").value;
+      if(data.includes(name)) { // check if the input already exist in the array
+        alert(name + " is already in the list");
+        return;
+      }
+      data.push(name); // add the input data to the array
+
+      var table = document.getElementById("output");
+      var row = table.insertRow();
+      var cell = row.insertCell();
+      cell.innerHTML = name;
+    }
+  </script>
+</body>
+</html>
